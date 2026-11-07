@@ -1,0 +1,267 @@
+CYBER SECURITY INTERNSHIP
+
+TASK 2: PHISHING EMAIL ANALYSIS REPORT
+
+1. Introduction
+
+Phishing is a cyberattack in which attackers send fraudulent emails pretending to be trusted organizations or individuals. Their purpose is to trick recipients into clicking malicious links, downloading harmful attachments, or sharing confidential information.
+
+The objective of this practical is to analyze a simulated phishing email and identify suspicious characteristics such as sender impersonation, suspicious links, email header issues, urgent language, URL inconsistencies, and spelling or grammar errors.
+
+2. Objective
+
+- To understand how phishing emails work.
+- To examine sender information and identify possible impersonation.
+- To analyze email header information.
+- To identify suspicious links and attachments.
+- To recognize social engineering techniques.
+- To identify suspicious language and URL characteristics.
+- To prepare a report documenting the phishing indicators found.
+
+3. Tools Used
+
+1. Notepad – To view and examine the sample email.
+2. Google Admin Toolbox – Messageheader – To attempt email header analysis.
+3. Google Chrome – To access the online analysis tool.
+
+4. Phishing Email Sample
+
+The following simulated email was used for this investigation.
+
+From: "Microsoft 365 Support" "support@sec-microsoft-alert-service.com" (mailto:support@sec-microsoft-alert-service.com)
+
+Reply-To: security-update@temp-mail-domain.net
+
+To: employee@company.com
+
+Subject: URGENT: Action Required - Verify Your Account Within 24 Hours
+
+Date: Tue, 10 Nov 2026 08:15:22 +0000
+
+Message-ID: "202611100815.abc12345@sec-microsoft-alert-service.com" (mailto:202611100815.abc12345@sec-microsoft-alert-service.com)
+
+Email Body:
+
+Dear User,
+
+We detected unusual sign-in activity on your Microsoft 365 account. To prevent account suspension, please verify your account immediately.
+
+Click here to verify your account.
+
+If you did not request this, your account may be compromised.
+
+Thanks,
+Microsoft Security Team
+
+Actual hyperlink destination: http://update-secure-portal.info
+
+---
+
+5. Detailed Email Investigation
+
+A. Sender Email Analysis
+
+Information examined:
+
+From: "Microsoft 365 Support" "support@sec-microsoft-alert-service.com" (mailto:support@sec-microsoft-alert-service.com)
+
+Reply-To: security-update@temp-mail-domain.net
+
+Suspicious parts identified:
+
+1. Sender display name: Microsoft 365 Support
+   
+   - The sender uses Microsoft's name to create trust.
+   - However, the display name alone does not prove that the email came from Microsoft.
+
+2. Sender address: support@sec-microsoft-alert-service.com
+   
+   - The domain is sec-microsoft-alert-service.com.
+   - It does not match Microsoft's official microsoft.com domain.
+   - This is a suspicious indicator of possible brand impersonation.
+
+3. Reply-To: security-update@temp-mail-domain.net
+   
+   - The Reply-To address uses a completely different domain.
+   - Replies may be directed to an address unrelated to the claimed organization.
+
+Finding: The sender information contains suspicious characteristics associated with impersonation and possible email spoofing. Actual spoofing cannot be confirmed from these fields alone.
+
+B. Email Header Analysis
+
+Tool used: Google Admin Toolbox – Messageheader
+
+Information submitted:
+
+- From
+- Reply-To
+- To
+- Subject
+- Date
+- Message-ID
+- Content-Type
+
+Observation:
+
+When the information was submitted to the Google Admin Toolbox, the tool displayed the following message:
+
+"The text you entered does not appear to contain recognizable email headers."
+
+Reason:
+
+The sample is a manually prepared simulated email. It contains basic email fields but does not contain complete original email delivery headers, such as Received and Authentication-Results.
+
+Finding:
+
+- Complete email routing information could not be analyzed.
+- SPF authentication could not be verified.
+- DKIM authentication could not be verified.
+- DMARC authentication could not be verified.
+- The actual sending server could not be established.
+
+Conclusion: Header analysis was attempted, but the available sample did not provide enough technical information to verify the sender's authenticity.
+
+C. Suspicious Links and Attachments Analysis
+
+Suspicious link found in the email:
+
+http://update-secure-portal.info
+
+Email text containing the link:
+
+"Click here to verify your account."
+
+Suspicious characteristics:
+
+1. The link uses HTTP instead of HTTPS.
+2. The domain does not match Microsoft's official domain.
+3. The link is presented as an account verification link.
+4. The recipient is encouraged to visit an unrelated domain.
+
+Attachment analysis:
+
+No attachments are present in the sample email.
+
+Finding: The URL contains suspicious characteristics and may lead to a fraudulent website. Its actual destination and behavior have not been independently verified.
+
+D. Urgent and Threatening Language Analysis
+
+The email contains several phrases designed to create urgency and fear.
+
+1. Subject:
+
+"URGENT: Action Required - Verify Your Account Within 24 Hours"
+
+- The word "URGENT" creates a sense of emergency.
+- "Within 24 Hours" creates time pressure.
+- The recipient may feel forced to act quickly.
+
+2. Email body:
+
+"To prevent account suspension, please verify your account immediately."
+
+- The phrase "account suspension" creates fear.
+- "Immediately" pressures the recipient to take action without proper verification.
+
+3. Email body:
+
+"If you did not request this, your account may be compromised."
+
+- This sentence creates anxiety about account security.
+- It encourages the recipient to follow the verification link.
+
+Finding: The email uses urgency, fear, and pressure to influence the recipient. These are common social engineering techniques used in phishing attacks.
+
+E. URL Mismatch Analysis
+
+Displayed link text:
+
+"Click here to verify your account."
+
+Actual URL:
+
+http://update-secure-portal.info
+
+Observations:
+
+1. The displayed text suggests that the link is for Microsoft account verification.
+2. The actual destination uses update-secure-portal.info.
+3. The destination domain does not match the claimed Microsoft identity.
+4. The link does not display the actual destination to the recipient.
+
+Finding: The link destination is suspicious because it is unrelated to the organization being impersonated.
+
+Note: The sample contains generic clickable text rather than a visible URL that directly contradicts its destination. Therefore, this is an unrelated and suspicious destination, not a proven visible-text mismatch.
+
+F. Spelling and Grammar Analysis
+
+The complete email body was examined for spelling and grammatical errors.
+
+Email text examined:
+
+"Dear User,"
+
+- Observation: This is a generic greeting rather than a personalized greeting.
+- Finding: It may indicate that the same message is being sent to multiple recipients. It is not a spelling or grammar error.
+
+" We detected unusual sign-in activity on your Microsoft 365 account. To prevent account suspension, please verify your account immediately."
+
+- Observation: No obvious spelling or grammatical mistakes were identified.
+- Finding: The sentence is grammatically understandable but uses urgent language.
+
+"If you did not request this, your account may be compromised."
+
+- Observation: No obvious spelling or grammatical mistakes were identified.
+- Finding: The sentence creates fear and encourages immediate action.
+
+"Thanks, Microsoft Security Team"
+
+- Observation: The signature is generic and does not identify a specific employee or provide verifiable contact information.
+- Finding: This is another characteristic worth investigating, but it is not a grammatical error.
+
+Overall finding:
+
+No obvious spelling or grammatical errors were found in the simulated email. However, the generic greeting and signature are additional observations that may be relevant when assessing the email.
+
+---
+
+6. Summary of Phishing Indicators
+
+The following suspicious characteristics were identified:
+
+No.| Phishing Indicator| Observation
+1| Suspicious sender| Domain does not match microsoft.com
+2| Different Reply-To| Uses another domain
+3| Suspicious URL| Unrelated verification domain
+4| Urgent language| Uses "URGENT" and "Within 24 Hours"
+5| Threatening language| Mentions account suspension
+6| Social engineering| Creates fear and urgency
+7| Generic greeting| Uses "Dear User"
+8| Header limitation| Complete authentication could not be verified
+
+7. Recommended Safety Measures
+
+1. Do not click suspicious email links.
+2. Do not share passwords or confidential information through unverified links.
+3. Verify the sender through the organization's official website or contact channels.
+4. Examine suspicious sender addresses and Reply-To addresses.
+5. Report suspicious emails to the appropriate security team.
+6. Use email authentication and security checks where available.
+
+8. Final Conclusion
+
+The investigation of the simulated Microsoft 365 phishing email identified multiple suspicious characteristics, including a questionable sender domain, a different Reply-To address, an unrelated verification URL, and the use of urgent and threatening language.
+
+The email also uses generic communication to appear like an ordinary security notification.
+
+Although no obvious spelling or grammatical errors were identified, several other phishing indicators were observed.
+
+The email header analysis could not be completed because the sample did not contain complete original email delivery headers.
+
+Based on the combined observations, the simulated email should be treated as suspicious and should not be trusted without independent verification.
+
+9. Learning Outcome
+
+Through this practical, I learned how to examine email sender information, inspect suspicious URLs, recognize social engineering techniques, understand email header analysis, and identify common phishing characteristics.
+
+This practical improved my understanding of email threat detection and phishing awareness.
